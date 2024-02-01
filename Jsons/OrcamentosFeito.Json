@@ -1,0 +1,10 @@
+{
+  "servico": {
+    "ID":"01",
+    "nome": "teste",
+    "descricao": "testando",
+    "situacao": "essa",
+    "valor do servico":"100",
+    "valor recebido": "20"
+  }
+}
