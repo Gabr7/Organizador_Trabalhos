@@ -5,7 +5,7 @@ Aplicativo em java, feito para organizar serviços e orçamentos.
 * Adicionar novos serviços;
 * Remover serviços;
 * Modificar um seviço antigo;
-* Lista de todos os serviços separados por, orçamento feito, servico cancelado, serviço confirmado, serviço concluido.
+* Lista de todos os serviços separados por, orçamento feito, serviço cancelado, serviço confirmado, serviço concluido.
 
 # Como vai funcionar
 * Todos os seviços ficaram em arquivos Json separados por tipos citados acima;

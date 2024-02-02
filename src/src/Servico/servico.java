@@ -28,4 +28,11 @@ public class servico {
     public void setRecebido(float recebido) {
         this.recebido = recebido;
     }
+    private void setID(){
+
+    }
+
+    public int getID() {
+        return ID;
+    }
 }
