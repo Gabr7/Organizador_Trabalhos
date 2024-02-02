@@ -1,0 +1,25 @@
+{
+  "servicos":[
+  {
+    "ID": 1,
+    "nome": "Serviço 1",
+    "situacao": "Ativo",
+    "valor": 100.0,
+    "recebido": 50.0
+  },
+  {
+    "ID": 2,
+    "nome": "Serviço 2",
+    "situacao": "Inativo",
+    "valor": 200.0,
+    "recebido": 100.0
+  },
+  {
+    "ID": 3,
+    "nome": "Serviço 3",
+    "situacao": "Ativo",
+    "valor": 300.0,
+    "recebido": 150.0
+  }
+]
+}

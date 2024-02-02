@@ -1,13 +1,13 @@
 package Servico;
 
-public class servico {
+public class Servico {
     int ID;
     String nome;
     String situacao;
     float valor;
     float recebido;
 
-    public servico(String nome){
+    public Servico(String nome){
         this.nome = nome;
     }
     public String getSituacao() {
