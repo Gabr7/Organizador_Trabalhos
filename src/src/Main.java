@@ -1,3 +1,4 @@
+import Interface.Tela;
 import Servico.DadosServicos;
 import Servico.Servico;
 import utils.EscritorJson;
@@ -7,23 +8,29 @@ import java.io.IOException;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args)  {
+
         DadosServicos dados = new DadosServicos();
+
         try {
         LeitorJson leitor = new LeitorJson("Jsons/TesteJson.Json");
         dados = leitor.LerArquivo();
-        Servico servico = new Servico("Teste"+(dados.getServicos().getLast().getID()+1));
+        Servico servico = new Servico("Teste "+(dados.getUltimoID()+1));
         dados.adicionarServico(servico);
         dados.printDados(dados.getUltimoID());
         }
         catch (IOException e){
             System.out.println("Erro de leitura");
         }
-        dados.removerServico(2);
-        try {
+       // dados.removerServico(2);
+        /*try {
             EscritorJson escritor = new EscritorJson();
             escritor.EscreverArquivo(dados);
         } catch (IOException e) {
             System.out.println("Erro de escrita");
-        }
+        }*/
+        Tela tela = new Tela(dados);
+        tela.mostrarTela();
+
+
     }
 }
