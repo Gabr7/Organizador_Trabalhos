@@ -10,19 +10,22 @@
     {
       "ID": 2,
       "nome": "Teste 2",
-      "valor": 0.0,
+      "situacao": "Ativo",
+      "valor": 200,
       "recebido": 0.0
     },
     {
       "ID": 3,
       "nome": "Teste 3",
-      "valor": 0.0,
+      "situacao": "Ativo",
+      "valor": 300,
       "recebido": 0.0
     },
     {
       "ID": 4,
       "nome": "Teste 4",
-      "valor": 0.0,
+      "situacao": "Ativo",
+      "valor": 500,
       "recebido": 0.0
     }
   ]
