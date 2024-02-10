@@ -6,27 +6,6 @@
       "situacao": "Ativo",
       "valor": 100.0,
       "recebido": 50.0
-    },
-    {
-      "ID": 2,
-      "nome": "Teste 2",
-      "situacao": "Ativo",
-      "valor": 200,
-      "recebido": 0.0
-    },
-    {
-      "ID": 3,
-      "nome": "Teste 3",
-      "situacao": "Ativo",
-      "valor": 300,
-      "recebido": 0.0
-    },
-    {
-      "ID": 4,
-      "nome": "Teste 4",
-      "situacao": "Ativo",
-      "valor": 500,
-      "recebido": 0.0
     }
   ]
 }

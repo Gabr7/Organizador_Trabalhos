@@ -48,7 +48,7 @@ public class Painel extends JPanel {
     }
     private void adicionarBotoes(){
         JPanel painelBotoes = new JPanel();
-        painelBotoes.setLayout(new GridLayout(4,1));
+        painelBotoes.setLayout(new GridLayout(3,1));
 
         JButton novo = new JButton("Novo");
         painelBotoes.add(novo);
@@ -62,10 +62,6 @@ public class Painel extends JPanel {
                 telaDetalhes.setVisible(true);
             }
         });
-
-        JButton modificar = new JButton("Modificar");
-        painelBotoes.add(modificar);
-
         JButton salvar = new JButton("Salvar");
         painelBotoes.add(salvar);
 

@@ -15,7 +15,7 @@ public class TelaDetalhes extends JFrame {
     }
 
     public void mostrarDetalhes(){
-        JPanel painelDetalhes = new JPanel(new GridLayout(4,1));
+        JPanel painelDetalhes = new JPanel(new GridLayout(5,1));
 
         JLabel nomeLabel = new JLabel("Nome: "+servico.getNome());
         JLabel situacaoLabel = new JLabel("Situação: "+servico.getSituacao());
@@ -26,6 +26,11 @@ public class TelaDetalhes extends JFrame {
         painelDetalhes.add(situacaoLabel);
         painelDetalhes.add(valorLabel);
         painelDetalhes.add(recebidoLabel);
+
+
+        JButton modificar = new JButton("Modificar");
+        painelDetalhes.add(modificar);
+
 
         this.add(painelDetalhes);
         this.setVisible(true);
