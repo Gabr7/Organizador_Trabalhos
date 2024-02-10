@@ -13,20 +13,11 @@ public class Main {
         try {
         LeitorJson leitor = new LeitorJson("Jsons/TesteJson.Json");
         dados = leitor.LerArquivo();
-        Servico servico = new Servico("Teste "+(dados.getUltimoID()+1));
-        dados.adicionarServico(servico);
-        dados.printDados(dados.getUltimoID());
         }
         catch (IOException e){
             System.out.println("Erro de leitura");
         }
-       // dados.removerServico(2);
-        /*try {
-            EscritorJson escritor = new EscritorJson();
-            escritor.EscreverArquivo(dados);
-        } catch (IOException e) {
-            System.out.println("Erro de escrita");
-        }*/
+
         TelaPrincipal tela = new TelaPrincipal(dados);
         tela.mostrarTela();
 

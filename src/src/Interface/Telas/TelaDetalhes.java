@@ -1,4 +1,4 @@
-package Interface;
+package Interface.Telas;
 
 import Servico.Servico;
 
