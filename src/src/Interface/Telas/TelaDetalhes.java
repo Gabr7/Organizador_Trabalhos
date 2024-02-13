@@ -12,6 +12,7 @@ public class TelaDetalhes extends JFrame {
     private Servico servicoDetalhes;
     private JPanel painelDetalhes;
     private PainelPrincipal painelPrincipal;
+    private Campos campos;
     public TelaDetalhes(PainelPrincipal painelPrincipal){
         super(painelPrincipal.getServicoSelecionado().getNome());
         this.setSize(new Dimension(300,300));
@@ -21,14 +22,16 @@ public class TelaDetalhes extends JFrame {
     }
 
     private void mostrarDetalhes(){
-        painelDetalhes = new JPanel(new GridLayout(5,1));
+        painelDetalhes = new JPanel(new GridLayout(6,1));
 
         JLabel nomeLabel = new JLabel("Nome: "+servicoDetalhes.getNome());
         JLabel situacaoLabel = new JLabel("Situação: "+servicoDetalhes.getSituacao());
-        JLabel valorLabel = new JLabel("Valor do servicoDetalhes: "+servicoDetalhes.getValor());
+        JLabel valorLabel = new JLabel("Valor do Detalhes: "+servicoDetalhes.getValor());
         JLabel recebidoLabel = new JLabel("Valor Recebido: "+servicoDetalhes.getRecebido());
+        JLabel descricaoLabel = new JLabel("Descrição: "+servicoDetalhes.getDescricao());
 
         painelDetalhes.add(nomeLabel);
+        painelDetalhes.add(descricaoLabel);
         painelDetalhes.add(situacaoLabel);
         painelDetalhes.add(valorLabel);
         painelDetalhes.add(recebidoLabel);

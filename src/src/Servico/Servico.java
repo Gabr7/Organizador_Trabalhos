@@ -5,6 +5,7 @@ public class Servico {
     private String situacao;
     private float valor;
     private float recebido;
+    private String descricao;
     public Servico(String nome){
         this.nome = nome;
     }
@@ -27,6 +28,13 @@ public class Servico {
         this.recebido = recebido;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
     public String getNome() {
         return nome;
