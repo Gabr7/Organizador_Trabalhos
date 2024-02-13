@@ -1,6 +1,5 @@
 import Interface.TelaPrincipal;
 import Servico.DadosServicos;
-import Servico.Servico;
 import utils.LeitorJson;
 import java.io.IOException;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,

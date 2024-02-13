@@ -14,12 +14,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class Painel extends JPanel {
+public class PainelPrincipal extends JPanel {
     DadosServicos dados;
     DefaultListModel listaAuxiliar;
     JList<String> lista;
     Servico servicoSelecionado;
-    public Painel(DadosServicos dados){
+    public PainelPrincipal(DadosServicos dados){
         super(new BorderLayout());
         this.dados = dados;
         iniciarLista(dados);
@@ -64,7 +64,7 @@ public class Painel extends JPanel {
         novo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaNovo telaNovo = new TelaNovo(Painel.this);
+                TelaNovo telaNovo = new TelaNovo(PainelPrincipal.this);
                 telaNovo.setVisible(true);
             }
         });
@@ -76,7 +76,7 @@ public class Painel extends JPanel {
         visualizarDetalhes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TelaDetalhes telaDetalhes = new TelaDetalhes(servicoSelecionado);
+                TelaDetalhes telaDetalhes = new TelaDetalhes(PainelPrincipal.this);
                 telaDetalhes.setVisible(true);
             }
         });
@@ -100,5 +100,9 @@ public class Painel extends JPanel {
 
     public DadosServicos getDados() {
         return dados;
+    }
+
+    public Servico getServicoSelecionado() {
+        return servicoSelecionado;
     }
 }

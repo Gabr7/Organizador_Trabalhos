@@ -1,7 +1,6 @@
 package Servico;
 
 public class Servico {
-    private int ID;
     private String nome;
     private String situacao;
     private float valor;
@@ -28,13 +27,6 @@ public class Servico {
         this.recebido = recebido;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public int getID() {
-        return ID;
-    }
 
     public String getNome() {
         return nome;

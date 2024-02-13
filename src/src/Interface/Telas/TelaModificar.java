@@ -2,36 +2,37 @@ package Interface.Telas;
 
 import Interface.PainelPrincipal;
 import Servico.Servico;
-import Servico.DadosServicos;
 
 import javax.swing.*;
+import Servico.DadosServicos;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaNovo extends JFrame {
+public class TelaModificar extends JFrame {
     private  JTextField campoNome;
     private  JComboBox<String> campoSituacao;
     private  JTextField campoValor;
     private  JTextField campoRecebido;
-
     DadosServicos dadosServicos;
-    Servico novoServico;
+    Servico servicoModificar;
     PainelPrincipal painelPrincipal;
-
-    public TelaNovo(PainelPrincipal painelPrincipal){
-        super("Novo servico");
+    public TelaModificar(PainelPrincipal painelPrincipal){
+        super("Modificar");
+        this.servicoModificar = painelPrincipal.getServicoSelecionado();
         this.setSize(300,300);
         this.setLayout(new GridLayout(5,1));
         this.dadosServicos = painelPrincipal.getDados();
         this.painelPrincipal = painelPrincipal;
 
-        campoNome = new JTextField();
-        campoRecebido = new JTextField();
-        campoValor = new JTextField();
+        campoNome = new JTextField(servicoModificar.getNome());
+        campoRecebido = new JTextField(String.valueOf(servicoModificar.getRecebido()));
+        campoValor = new JTextField(String.valueOf(servicoModificar.getValor()));
 
         String[] situacoes = {"Orcamento feito", "Servico Confirmado", "Servico Concluido"};
         campoSituacao = new JComboBox<>(situacoes);
+        campoSituacao.setSelectedItem(servicoModificar.getSituacao());
 
         this.add(new JLabel("Nome: "));
         this.add(campoNome);
@@ -55,20 +56,21 @@ public class TelaNovo extends JFrame {
         salvar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                novoServico = new Servico(campoNome.getText());
-                novoServico.setSituacao((String)campoSituacao.getSelectedItem());
+                dadosServicos.removerServico(servicoModificar);
+                servicoModificar = new Servico(campoNome.getText());
+                servicoModificar.setSituacao((String)campoSituacao.getSelectedItem());
                 try {
-                    novoServico.setValor(Float.parseFloat(campoValor.getText()));
-                    novoServico.setRecebido(Float.parseFloat(campoRecebido.getText()));
-                    dadosServicos.adicionarServico(novoServico);
+                    servicoModificar.setValor(Float.parseFloat(campoValor.getText()));
+                    servicoModificar.setRecebido(Float.parseFloat(campoRecebido.getText()));
+
+                    dadosServicos.adicionarServico(servicoModificar);
                     painelPrincipal.atualizarLista();
-                    TelaNovo.this.dispose();
+                    TelaModificar.this.dispose();
                 } catch (NumberFormatException ex){
                     JOptionPane.showMessageDialog(null, "Por favor, insira um número válido para o valor e o valor recebido.");
-                } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
+                }
+                painelPrincipal.atualizarLista();
+                TelaModificar.this.dispose();
 
             }
         });
@@ -77,3 +79,4 @@ public class TelaNovo extends JFrame {
 
 
 }
+
