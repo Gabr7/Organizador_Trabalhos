@@ -47,8 +47,10 @@ public class PainelPrincipal extends JPanel {
 
     private  void iniciarLista(DadosServicos dados){
         listaAuxiliar = new DefaultListModel<>();
-        for(Servico servicos: dados.getServicos()){
+        if(dados != null && dados.getServicos() != null){
+            for(Servico servicos: dados.getServicos()){
             listaAuxiliar.addElement(servicos.getNome());
+            }
         }
         lista = new JList<>(listaAuxiliar);
         this.add(lista, BorderLayout.CENTER);

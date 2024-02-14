@@ -1,11 +1,15 @@
 package Servico;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DadosServicos {
     private List<Servico> servicos;
 
     public void adicionarServico(Servico servico){
+        if(this.servicos == null){
+            this.servicos = new ArrayList<>();
+        }
         this.servicos.add(servico);
     }
     public void removerServico(Servico remover){

@@ -10,9 +10,12 @@ public class LeitorJson {
     }
     public DadosServicos LerArquivo() throws IOException {
         Gson gson = new Gson();
-        DadosServicos dados = new DadosServicos();
+        DadosServicos dados = null;
         try (FileReader leitor = new FileReader(arquivoJson)){
         dados = (gson.fromJson(leitor, DadosServicos.class));
+        }
+        if(dados == null){
+            dados = new DadosServicos();
         }
         return dados;
     }

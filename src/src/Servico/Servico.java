@@ -1,11 +1,14 @@
 package Servico;
 
+import java.time.LocalDate;
+
 public class Servico {
     private String nome;
     private String situacao;
     private float valor;
     private float recebido;
     private String descricao;
+    private LocalDate data;
     public Servico(String nome){
         this.nome = nome;
     }
@@ -42,5 +45,13 @@ public class Servico {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 }

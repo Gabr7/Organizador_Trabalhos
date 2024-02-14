@@ -4,6 +4,7 @@ import Interface.PainelPrincipal;
 import Servico.Servico;
 import Servico.DadosServicos;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,6 +49,65 @@ public class Campos {
 
 
     }
+    public void camposTelaDetalhes(TelaDetalhes telaDetalhes){
+
+        JPanel painelDetalhes = telaDetalhes.getPainelDetalhes();
+        Servico servicoDetalhes = telaDetalhes.getServicoDetalhes();
+
+        JLabel nomeLabel = new JLabel("Nome: "+servicoDetalhes.getNome());
+        JLabel situacaoLabel = new JLabel("Situação: "+servicoDetalhes.getSituacao());
+        JLabel valorLabel = new JLabel("Valor do Detalhes: "+servicoDetalhes.getValor());
+        JLabel recebidoLabel = new JLabel("Valor Recebido: "+servicoDetalhes.getRecebido());
+        JLabel descricaoLabel = new JLabel("Descrição: "+servicoDetalhes.getDescricao());
+
+        painelDetalhes.add(nomeLabel);
+        painelDetalhes.add(descricaoLabel);
+        painelDetalhes.add(situacaoLabel);
+        painelDetalhes.add(valorLabel);
+        painelDetalhes.add(recebidoLabel);
+
+        adicionarBotoesDetalhes(telaDetalhes);
+
+        this.tela.add(painelDetalhes);
+        this.tela.setVisible(true);
+    }
+    private void adicionarBotoesDetalhes(TelaDetalhes telaDetalhes){
+        JPanel painelBotoes = new JPanel();
+        JButton botaoModificar = new JButton("Modificar");
+        painelBotoes.add(botaoModificar);
+        PainelPrincipal painelPrincipal = telaDetalhes.getPainelPrincipal();
+        Servico servicoDetalhes = telaDetalhes.getServicoDetalhes();
+        botaoModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaModificar telaModificar = new TelaModificar(painelPrincipal);
+                telaModificar.setVisible(true);
+                telaDetalhes.dispose();
+
+            }
+        });
+
+
+        JButton botaoExcluir = new JButton("Excluir");
+        botaoExcluir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int resposta = JOptionPane.showConfirmDialog(null, "Você deseja realmente excluir?", "Confirmação", JOptionPane.YES_NO_OPTION);
+                if (resposta == JOptionPane.YES_OPTION) {
+                    painelPrincipal.getDados().removerServico(servicoDetalhes);
+                    painelPrincipal.atualizarLista();
+                    telaDetalhes.dispose();
+                }
+
+            }
+        });
+        painelBotoes.add(botaoExcluir);
+
+        telaDetalhes.getPainelDetalhes().add(painelBotoes);
+
+
+    }
+
 
     private void adicionarCampos() {
         this.tela.add(new JLabel("Nome: "));
@@ -65,8 +125,6 @@ public class Campos {
         this.tela.add(new JLabel("Recebido: "));
         this.tela.add(campoRecebido);
     }
-
-    ;
 
     public JTextField getCampoNome() {
         return campoNome;
