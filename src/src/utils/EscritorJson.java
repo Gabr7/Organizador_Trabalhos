@@ -14,7 +14,7 @@ public class EscritorJson {
 
     public void EscreverArquivo(DadosServicos dados) throws IOException {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(LocalDate.class,new LocalDateAdapter())
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
                 .setPrettyPrinting()
                 .create();
         String json = gson.toJson(dados);

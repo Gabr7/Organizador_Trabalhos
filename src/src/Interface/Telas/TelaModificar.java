@@ -23,7 +23,7 @@ public class TelaModificar extends JFrame {
         super("Modificar");
         this.servicoModificar = painelPrincipal.getServicoSelecionado();
         this.setSize(300,300);
-        this.setLayout(new GridLayout(6,1));
+        this.setLayout(new GridLayout(7,1));
         this.dadosServicos = painelPrincipal.getDados();
         this.painelPrincipal = painelPrincipal;
         this.campos = new Campos(TelaModificar.this);

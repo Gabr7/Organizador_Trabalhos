@@ -1,10 +1,16 @@
 {
   "servicos": [
     {
-      "nome": "ffdsf",
+      "nome": "TAmara",
+      "situacao": "Servico Confirmado",
+      "valor": 1000.0,
+      "recebido": 0.0
+    },
+    {
+      "nome": "ewereerrr",
       "situacao": "Orcamento feito",
-      "valor": 123.0,
-      "recebido": 323.0
+      "valor": 3213.0,
+      "recebido": 123.0
     }
   ]
 }

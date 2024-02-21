@@ -4,9 +4,11 @@ import Interface.PainelPrincipal;
 import Servico.Servico;
 import Servico.DadosServicos;
 import javax.swing.*;
-import java.awt.*;
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.ZoneId;
+
 
 public class Campos {
     private JTextField campoNome;
@@ -14,6 +16,7 @@ public class Campos {
     private JComboBox<String> campoSituacao;
     private JTextField campoValor;
     private JTextField campoRecebido;
+    private JDateChooser campoData;
     private JFrame tela;
     private JButton salvar;
 
@@ -29,7 +32,10 @@ public class Campos {
 
         String[] situacoes = {"Orcamento feito", "Servico Confirmado", "Servico Concluido"};
         campoSituacao = new JComboBox<>(situacoes);
+        campoData = new JDateChooser();
+        campoData.setDateFormatString("dd/MM/yyyy");
     }
+
 
     public void camposTelaNovo() {
         adicionarCampos();
@@ -116,6 +122,9 @@ public class Campos {
         this.tela.add(new JLabel("Descrição: "));
         this.tela.add(campoDescricao);
 
+        this.tela.add(new JLabel("Data: "));
+        this.tela.add(campoData);
+
         this.tela.add(new JLabel("Situação: "));
         this.tela.add(campoSituacao);
 
@@ -150,14 +159,22 @@ public class Campos {
         return tela;
     }
 
+    public JDateChooser getCampoData() {
+        return campoData;
+    }
+
     public JButton criarBotaoSalvar(PainelPrincipal painelPrincipal) {
         DadosServicos dadosServicos = painelPrincipal.getDados();
         JButton salvar = new JButton("Salvar");
         salvar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Servico novoServico = new Servico(campoNome.getText());
+                dadosServicos.removerServico(novoServico);
                 novoServico.setSituacao((String) campoSituacao.getSelectedItem());
+                novoServico.setDescricao(campoDescricao.getText());
+                novoServico.setData(campoData.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                 try {
                     novoServico.setValor(Float.parseFloat(campoValor.getText()));
                     novoServico.setRecebido(Float.parseFloat(campoRecebido.getText()));

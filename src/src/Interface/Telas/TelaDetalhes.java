@@ -22,8 +22,9 @@ public class TelaDetalhes extends JFrame {
     }
 
     private void mostrarDetalhes(){
-       painelDetalhes = new JPanel(new GridLayout(6,1));
-
+       painelDetalhes = new JPanel(new GridLayout(7,1));
+       Campos campos = new Campos(TelaDetalhes.this);
+       campos.camposTelaDetalhes(TelaDetalhes.this);
 
     }
 

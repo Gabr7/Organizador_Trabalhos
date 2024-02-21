@@ -24,7 +24,7 @@ public class TelaNovo extends JFrame {
     public TelaNovo(PainelPrincipal painelPrincipal){
         super("Novo servico");
         this.setSize(300,300);
-        this.setLayout(new GridLayout(6,1));
+        this.setLayout(new GridLayout(7,1));
         this.dadosServicos = painelPrincipal.getDados();
         this.painelPrincipal = painelPrincipal;
         this.campos =new Campos(TelaNovo.this);

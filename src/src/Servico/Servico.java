@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 public class Servico {
     private String nome;
+    private String descricao;
+    private LocalDate data;
     private String situacao;
     private float valor;
     private float recebido;
-    private String descricao;
-    private LocalDate data;
+
+
     public Servico(String nome){
         this.nome = nome;
     }
