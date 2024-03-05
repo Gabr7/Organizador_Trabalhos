@@ -11,7 +11,7 @@ public class Main {
         DadosServicos dados = new DadosServicos();
 
         try {
-        LeitorJson leitor = new LeitorJson("Jsons/TesteJson.Json");
+        LeitorJson leitor = new LeitorJson("Servicos.Json");
         dados = leitor.LerArquivo();
         }
         catch (IOException e){

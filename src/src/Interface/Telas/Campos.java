@@ -7,7 +7,9 @@ import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 
 public class Campos {
@@ -18,7 +20,6 @@ public class Campos {
     private JTextField campoRecebido;
     private JDateChooser campoData;
     private JFrame tela;
-    private JButton salvar;
 
     public Campos(JFrame tela) {
         this.tela = tela;
@@ -66,7 +67,14 @@ public class Campos {
         JLabel recebidoLabel = new JLabel("Valor Recebido: "+servicoDetalhes.getRecebido());
         JLabel descricaoLabel = new JLabel("Descrição: "+servicoDetalhes.getDescricao());
 
+        LocalDate data = servicoDetalhes.getData();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String dataFormatada = data.format(formato);
+
+        JLabel dataLabel = new JLabel("Data: " + dataFormatada);
+
         painelDetalhes.add(nomeLabel);
+        painelDetalhes.add(dataLabel);
         painelDetalhes.add(descricaoLabel);
         painelDetalhes.add(situacaoLabel);
         painelDetalhes.add(valorLabel);
@@ -83,14 +91,11 @@ public class Campos {
         painelBotoes.add(botaoModificar);
         PainelPrincipal painelPrincipal = telaDetalhes.getPainelPrincipal();
         Servico servicoDetalhes = telaDetalhes.getServicoDetalhes();
-        botaoModificar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                TelaModificar telaModificar = new TelaModificar(painelPrincipal);
-                telaModificar.setVisible(true);
-                telaDetalhes.dispose();
+        botaoModificar.addActionListener(e -> {
+            TelaModificar telaModificar = new TelaModificar(painelPrincipal);
+            telaModificar.setVisible(true);
+            telaDetalhes.dispose();
 
-            }
         });
 
 
