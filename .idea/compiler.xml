@@ -9,11 +9,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="pom" />
+        <module name="organizador-servicos" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Organizador_Trabalhos" target="1.5" />
+      <module name="pom" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
