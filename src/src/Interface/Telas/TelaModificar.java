@@ -1,14 +1,10 @@
 package Interface.Telas;
-
 import Interface.PainelPrincipal;
 import Servico.Servico;
-
 import javax.swing.*;
 import Servico.DadosServicos;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class TelaModificar extends JFrame {
     private  JTextField campoNome;

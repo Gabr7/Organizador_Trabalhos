@@ -3,11 +3,9 @@ package Interface.Telas;
 import Interface.PainelPrincipal;
 import Servico.Servico;
 import Servico.DadosServicos;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class TelaNovo extends JFrame {
     private  JTextField campoNome;
