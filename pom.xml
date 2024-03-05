@@ -5,6 +5,10 @@
   <artifactId>organizador-servicos</artifactId>
   <version>1.0</version>
   <name>Organizador de Serviços</name>
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -28,7 +32,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>Main</mainClass>
+              <mainClass>com.gabriel.organizadorservicos.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
