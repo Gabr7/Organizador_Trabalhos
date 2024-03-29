@@ -1,6 +1,8 @@
 # Organizador de Serviços
+Esse projeto nao tera continuidade no momento
 
 Este projeto é um organizador de serviços, onde você pode adicionar, modificar e excluir serviços.
+
 
 ## Funcionalidades
 
